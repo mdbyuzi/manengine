@@ -1,0 +1,9 @@
+.price-com{
+    direction: rtl;
+}
+.ul-page li:checked{
+    border: 1px solid black;
+}
+.ul-page{
+    
+}

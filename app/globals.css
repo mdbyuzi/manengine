@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@layer base {
+  @font-face {
+    font-family: "vazir";
+    src: url(../public/assets/font/vazir-font-v16.1.0/Vazir.ttf) format("truetype"),
+      url(../public/assets/font/vazir-font-v16.1.0/Vazir.woff) format("woff"),
+      url(../public/assets/font/vazir-font-v16.1.0/Vazir-Light.woff2) format("woff2");
+  }
+}

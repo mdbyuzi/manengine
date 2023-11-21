@@ -1,0 +1,32 @@
+li{
+    display: flex;
+    flex-direction: column;
+    direction: rtl;
+}
+.nav_search li::after{
+    transition: all 0.7s ;
+    transition-timing-function: cubic-bezier(0.19,1,0.22,1);
+    content: "";
+    width: 0%;
+    background-color: black;
+    height: 3px;
+    margin: 3px 0px;
+}
+.nav_search li:hover::after{
+    width: 100%;
+}
+.input-search{
+    direction: rtl;
+    transition: 1s;
+    transition-timing-function: cubic-bezier(0.19,1,0.22,1);
+}
+.open{
+    width: 100%;
+}
+.close{
+    width: 0%;
+    padding: 0;
+    border: 0;
+}
+
+    
