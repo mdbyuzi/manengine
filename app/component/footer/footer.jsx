@@ -2,7 +2,7 @@ function Footer() {
     return <>
  
 
-<footer className="mt-40 bg-gray text-white dark:bg-gray-900 font-vazir">
+<footer className="mt-5 bg-gray text-white dark:bg-gray-900 font-vazir">
     <div className="mx-auto w-full max-w-screen-xl">
       <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
         <div>

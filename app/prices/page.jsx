@@ -16,8 +16,10 @@ export default function Page() {
     let [toggle, settoggle] = useState();
     let [pricepic, setpricepic] = useState(0);
     let [text, settext] = useState()
-
-
+    let [useritms,usersetitms]=useState()
+    function setprice(e){
+        usersetitms(e)
+    }
     function pricehandle(data, checkhand) {
 
         console.log(checkhand);
@@ -58,14 +60,12 @@ export default function Page() {
                         <div className="">
                             <p className=" p-[3px] my-4 bg-green text-white text-[20px]  ">ADManager Plus Standard Edition (Annual Subscription)</p>
                             {/* this name for component mean first header charecter */}
-                            <Productfetch pricehandle={pricehandle} from="Domain (Unrestricted Objects" />
+                            <Productfetch itms={(e)=>setprice(e)} pricehandle={pricehandle} from="Domain (Unrestricted Objects" />
                         </div>
                         <div>
                             <p className="p-[3px] my-4 bg-green text-white text-[20px]">ADManager Plus Active Directory Backup and Recovery add-on</p>
-                            <Productfetch pricehandle={pricehandle} from="User Objects" />
-
+                            <Productfetch itms={(e)=>setprice(e)} pricehandle={pricehandle} from="User Objects" />
                         </div>
-
                         <div className="flex flex-col mt-10">
                             <p>جمع کل</p>
                             <input className=" border-dashed border-2 w-[20%] p-2 border-darkgreen  my-2 border-dashded" type="text" disabled value={pricepic} />
@@ -73,11 +73,11 @@ export default function Page() {
                         </div>
                         <div className="flex w-full font-vazir">
                             <div className="flex justify-center items-center w-full ">
-                                <Formbox />
+                                <Formbox price={pricepic} items={useritms}  />
                             </div>
                         </div>
                         
-                        <button onClick={() => { postuserinfo() }} className="bg-bluewindows p-4 rounded">درخواست</button>
+                        
 
                     </div>
 

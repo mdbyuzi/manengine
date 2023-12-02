@@ -8,7 +8,8 @@ import { useState } from "react"
 function Navbar() {
     let [inputColor, setInputColor] = useState(false)
     let [toggleSearch, setToggleSearch] = useState(false)
-    let [searchValue, setSearchValue] = useState()
+    let [searchValue, setSearchValue] = useState();
+    let [barstoggle, setbartoggle] = useState(false);
 
     function search_toggle_open() {
         setToggleSearch(true)
@@ -16,13 +17,16 @@ function Navbar() {
     function search_toggle_close() {
         setToggleSearch(false)
     }
-    return <div onClick={(e) => {
+    function openbar() {
+        setbartoggle(!barstoggle)
+    }
+    return <> <div onClick={(e) => {
         e.stopPropagation()
         setSearchValue("")
         search_toggle_close()
     }} className={` z-40 h-[7rem] bg-white flex flex-row-reverse  justify-around items-center border-20 border-solid border-indigo-500 border-lightgray border-y-2 fixed  w-full`}>
         <div className="flex">
-            <Image alt="not loading" className="mx-4" src="/assets/logo/manageengine-logo.svg" width={250} height={180}></Image><span className="self-end">fa</span>
+            <Image alt="not loading" className="mx-4" src="/assets/logo/manageengine-logo.svg" width={250} height={180}></Image><span className="self-end text-xl">fa</span><span></span>
 
         </div>
         <div className="flex flex-row justify-between w-90 m-10 mx-2">
@@ -42,8 +46,8 @@ function Navbar() {
                             if (searchValue) {
                                 setInputColor(true)
                                 setSearchValue("عبارت را تایپ کنید!")
-                            }else{
-                                
+                            } else {
+
                             }
                         } else {
                             search_toggle_open();
@@ -68,10 +72,26 @@ function Navbar() {
                         <button className="flex flex-row text-lg px-5 py-[10px] justify-center" >لیست قیمت <FontAwesomeIcon className="ml-3" width={13} icon={faMapPin} /></button></Link>
                 </div >
                 <div className=" xl:hidden flex w-full ">
-                    <FontAwesomeIcon className="text-[30px]" width={30} height={70} icon={faBars} />
+                    <FontAwesomeIcon onClick={() =>
+                        openbar()
+                    } className="z-50 text-[30px]" width={30} height={70} icon={faBars} />
+
                 </div>
+
             </div>
         </div>
+      
     </div>
+     <div className={` trantition  duration-150 ease-in-out text-end font-vazir my-[120px] absolute z-40 xl:hidden ${barstoggle ? "w-full translate-x-[0px]" : "w-0"} transform translate-x-[-40px] translate-y-4`}>
+         <ul className="flex flex-col z-40">
+             <li className="p-4 border bg-green border-bottom">صفحه اصلی</li>
+             <li className="p-4 border bg-green border-bottom">فروشگاه</li>
+             <li className="p-4 border bg-green border-bottom">درباره</li>
+             <li className="p-4 border bg-green border-bottom">تماس با ما</li>
+             <li className="p-4 border bg-green border-bottom">محصولات</li>
+             <li className="p-4 border bg-green border-bottom">لیست قیمت</li>
+         </ul>
+     </div>
+  </>
 }
 export default Navbar
