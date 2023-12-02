@@ -80,18 +80,22 @@ function Navbar() {
 
             </div>
         </div>
-      
+
     </div>
-     <div className={` trantition  duration-150 ease-in-out text-end font-vazir my-[120px] absolute z-40 xl:hidden ${barstoggle ? "w-full translate-x-[0px]" : "w-0"} transform translate-x-[-40px] translate-y-4`}>
-         <ul className="flex flex-col z-40">
-             <li className="p-4 border bg-green border-bottom">صفحه اصلی</li>
-             <li className="p-4 border bg-green border-bottom">فروشگاه</li>
-             <li className="p-4 border bg-green border-bottom">درباره</li>
-             <li className="p-4 border bg-green border-bottom">تماس با ما</li>
-             <li className="p-4 border bg-green border-bottom">محصولات</li>
-             <li className="p-4 border bg-green border-bottom">لیست قیمت</li>
-         </ul>
-     </div>
-  </>
+        <div className={` trantition  duration-150 ease-in-out text-end font-vazir my-[120px] absolute z-40 xl:hidden ${barstoggle ? "w-full translate-x-[0px]" : "w-0"} transform translate-x-[-40px] translate-y-4`}>
+            <ul className="flex flex-col z-40">
+                <Link href="/">
+                    <li className="p-4 border bg-green border-bottom">صفحه اصلی</li>
+                </Link>
+                <li className="p-4 border bg-green border-bottom">فروشگاه</li>
+                <li className="p-4 border bg-green border-bottom">درباره</li>
+                <li className="p-4 border bg-green border-bottom">تماس با ما</li>
+                <li className="p-4 border bg-green border-bottom">محصولات</li>
+                <Link href="/prices">
+                    <li className="p-4 border bg-green border-bottom">لیست قیمت</li>
+                </Link>
+            </ul>
+        </div>
+    </>
 }
 export default Navbar
