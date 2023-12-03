@@ -10,7 +10,10 @@ function Navbar() {
     let [toggleSearch, setToggleSearch] = useState(false)
     let [searchValue, setSearchValue] = useState();
     let [barstoggle, setbartoggle] = useState(false);
-
+    let [lang,setlang]=useState("fa");
+    function changelang(e){
+        setlang(e)
+    }
     function search_toggle_open() {
         setToggleSearch(true)
     }
@@ -26,7 +29,11 @@ function Navbar() {
         search_toggle_close()
     }} className={` z-40 h-[7rem] bg-white flex flex-row-reverse  justify-around items-center border-20 border-solid border-indigo-500 border-lightgray border-y-2 fixed  w-full`}>
         <div className="flex">
-            <Image alt="not loading" className="mx-4" src="/assets/logo/manageengine-logo.svg" width={250} height={180}></Image><span className="self-end text-xl">fa</span><span></span>
+            <Image alt="not loading" className="mx-4" src="/assets/logo/manageengine-logo.svg" width={250} height={180}></Image>
+            <select className="p-2 text-xl" onChange={(e)=>{changelang (e.currentTarget.value);}}>
+                <option className="py-4">fa</option>
+                <option className="py-4">en</option>
+            </select>
 
         </div>
         <div className="flex flex-row justify-between w-90 m-10 mx-2">
@@ -82,19 +89,21 @@ function Navbar() {
         </div>
 
     </div>
-        <div className={` trantition  duration-150 ease-in-out text-end font-vazir my-[120px] absolute z-40 xl:hidden ${barstoggle ? "w-full translate-x-[0px]" : "w-0"} transform translate-x-[-40px] translate-y-4`}>
-            <ul className="flex flex-col z-40">
-                <Link href="/">
-                    <li className="p-4 border cursor-pointer bg-green border-bottom">صفحه اصلی</li>
-                </Link>
-                <li className="p-4 border cursor-pointer bg-green border-bottom">فروشگاه</li>
-                <li className="p-4 border cursor-pointer bg-green border-bottom">درباره</li>
-                <li className="p-4 border cursor-pointer bg-green border-bottom">تماس با ما</li>
-                <li className="p-4 border cursor-pointer bg-green border-bottom">محصولات</li>
-                <Link href="/prices">
-                    <li className="p-4 border bg-green border-bottom">لیست قیمت</li>
-                </Link>
-            </ul>
+        <div className="fixed w-full z-40">
+            <div className={` trantition  duration-150 ease-in-out text-end font-vazir my-[120px] absolute z-40 xl:hidden ${barstoggle ? "w-full translate-x-[0px]" : "w-0"} transform translate-x-[-40px] translate-y-4`}>
+                <ul className="  flex flex-col z-40">
+                    <Link href="/">
+                        <li className="p-4 border cursor-pointer bg-green border-bottom">صفحه اصلی</li>
+                    </Link>
+                    <li className="p-4 border cursor-pointer bg-green border-bottom">فروشگاه</li>
+                    <li className="p-4 border cursor-pointer bg-green border-bottom">درباره</li>
+                    <li className="p-4 border cursor-pointer bg-green border-bottom">تماس با ما</li>
+                    <li className="p-4 border cursor-pointer bg-green border-bottom">محصولات</li>
+                    <Link href="/prices">
+                        <li className="p-4 border bg-green border-bottom">لیست قیمت</li>
+                    </Link>
+                </ul>
+            </div>
         </div>
     </>
 }
