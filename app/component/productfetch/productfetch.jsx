@@ -10,7 +10,7 @@ function Productfetch({ from, pricehandle, itms }) {
 
     }
     useEffect(() => {
-        fetch("http://adaudit.ir/api/topics").then((data) => {
+        fetch("https://adaudit.ir/api/topics").then((data) => {
             return data.json()
         }).then((data) => {
             let dataval = data.topics
