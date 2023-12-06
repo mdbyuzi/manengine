@@ -4,16 +4,22 @@ import Image from "next/image"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faDownload, faMapPin, faSearch } from "@fortawesome/free-solid-svg-icons"
-import { useState } from "react"
-function Navbar() {
+import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+
+
+function Navbar({setlang}) {
     let [inputColor, setInputColor] = useState(false)
     let [toggleSearch, setToggleSearch] = useState(false)
     let [searchValue, setSearchValue] = useState();
     let [barstoggle, setbartoggle] = useState(false);
-    let [lang,setlang]=useState("fa");
-    function changelang(e){
-        setlang(e)
-    }
+    useEffect(()=>{
+        fetch("http://localhost:3000/api/topics").then((data)=>{
+            return data.json()
+        }).then((data)=>{
+            console.log(data);
+        })
+    },[])
     function search_toggle_open() {
         setToggleSearch(true)
     }
@@ -30,9 +36,9 @@ function Navbar() {
     }} className={` z-40 h-[7rem] bg-white flex flex-row-reverse  justify-around items-center border-20 border-solid border-indigo-500 border-lightgray border-y-2 fixed  w-full`}>
         <div className="flex">
             <Image alt="not loading" className="mx-4" src="/assets/logo/manageengine-logo.svg" width={250} height={180}></Image>
-            <select className="p-2 text-xl" onChange={(e)=>{changelang (e.currentTarget.value);}}>
-                <option className="py-4">fa</option>
-                <option className="py-4">en</option>
+            <select onChange={(e)=>{setlang(e)}} name="" id="">
+                <option value="en">EN</option>
+                <option value="fr">FR</option>
             </select>
 
         </div>
@@ -67,7 +73,6 @@ function Navbar() {
                     <li className="cursor-pointer hidden text-lg  lg:flex text-gray p-4 hover:text-green">محصولات</li>
                     <li className="cursor-pointer hidden text-lg  lg:flex text-gray p-4 hover:text-green">تماس با ما</li>
                     <li className="cursor-pointer hidden text-lg  lg:flex text-gray p-4 hover:text-green">درباره ما</li>
-                    <li className="cursor-pointer hidden text-lg  lg:flex text-gray p-4 hover:text-green">فروشگاه</li>
                     <Link href="/">
                         <li className="cursor-pointer hidden text-lg  lg:flex text-gray p-4 hover:text-green">صفحه اصلی</li>
                     </Link>

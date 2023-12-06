@@ -1,38 +1,38 @@
 "use client"
 import { useState, useEffect } from "react";
 
-function Productfetch({ from, pricehandle ,itms }) {
+function Productfetch({ from, pricehandle, itms }) {
     let [dataval, setdata] = useState();
-    let [dataobj,setdataobj]=useState([]);
+    let [dataobj, setdataobj] = useState([]);
     function handlerchangetik(data, e) {
         let resnum = Number(data.replace(/\D/g, ""));
         pricehandle(resnum, e.currentTarget.checked);
 
     }
     useEffect(() => {
-        fetch("http://localhost/testbackend/views/apse").then((data) => {
+        fetch("http://localhost:3000/api/topics").then((data) => {
             return data.json()
         }).then((data) => {
-            let dataval = data
-            if (from === "Domain (Unrestricted Objects") {
-                let result = dataval.splice(0, 9)
-                setdata(result)
-                console.log(result);
-
-            } else if (from === "User Objects") {
-                let result = dataval.splice(10, 22)
-                setdata(result)
-                console.log(result);
-
-            } else if (from === "Domain (Unrestricted Objects) pro") {
-                let result = dataval.splice(23, 33)
-                setdata(result)
-                console.log(result);
-
-            } else if (from === "User Objects pro") {
-                let result = dataval.splice(34, 46)
-                setdata(result)
-                console.log(result);
+            let dataval = data.topics
+            switch (from) {
+                case "Domain (Unrestricted Objects":
+                    let datafilter = dataval.filter((itm) => {
+                        return itm.type === "Domain"
+                    })
+                    setdata(datafilter)
+                    break;
+                case "User Objects":
+                    let datafilter1 = dataval.filter((itm) => {
+                        return itm.type === "User Objects"
+                    })
+                    setdata(datafilter1)
+                    break;
+                case "Domain (Unrestricted Objects) pro":
+                    let datafilter2 = dataval.filter((itm) => {
+                        return itm.type === "Domain pro"
+                    })
+                    setdata(datafilter2)
+                    break;
             }
         })
     }, [])
@@ -43,12 +43,12 @@ function Productfetch({ from, pricehandle ,itms }) {
                     <input onChange={(e) => {
                         console.log(d);
                         handlerchangetik(d.PRICE, e);
-                        if(e.currentTarget.checked){ 
+                        if (e.currentTarget.checked) {
                             itms(dataobj.push(d));
-                        }else{
-                            const index=dataobj.indexOf(d);
-                            if(index>-1){
-                                itms(dataobj.splice(index,1));
+                        } else {
+                            const index = dataobj.indexOf(d);
+                            if (index > -1) {
+                                itms(dataobj.splice(index, 1));
                             }
                         }
                         console.log(dataobj);

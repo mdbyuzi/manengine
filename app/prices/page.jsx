@@ -4,6 +4,8 @@ import Navbar from "../component/navbar/navbar"
 import PriceBlock from "../component/priceblock/priceblock"
 import FetchPrice from "../component/productfetch/productfetch"
 import Productfetch from "../component/productfetch/productfetch"
+import Productfetchpro from "../component/productfetchpro/productfetchpro"
+
 import Footer from "../component/footer/footer"
 import Inputform from "../component/inputform/inputform"
 import Formbox from "../component/formbox/formbox"
@@ -48,9 +50,9 @@ export default function Page() {
                 <div className="w-full flex my-5 flex-col">
                     <ul className="flex self-end absolute top-[3.5px] left-10 bg-white z-30 border-b-0 w-[332px] flex justify-center items-center relative ul-page">
                         <li onClick={() => settoggle(true)} className={`
-                          p-4 ${toggle ? "border-4" : "border-b-4"} text-lightgray   border-orange border-b-0`}>Professional Edition</li>
+                          p-4 ${toggle ? "border-4" : "border-b-4 text-lightgray"}    border-orange border-b-0`}>Professional Edition</li>
                         <li onClick={() => settoggle(false)} className={`
-                         p-4 ${toggle ? "border-b-4" : "border-4"} border-orange border-b-0`}>Standard Edition</li>
+                         p-4 ${toggle ? "border-b-4 text-lightgray" : "border-4"} border-orange border-b-0`}>Standard Edition</li>
                     </ul>
 
                     <div className={`${toggle ? 'hidden' : ""} border-4 border-orange rounded-xl p-6 `}>
@@ -88,12 +90,11 @@ export default function Page() {
                         <div className="">
                             <p className=" p-[3px] my-4 bg-green text-white text-[20px]  ">ADManager Plus Professional Edition (Annual Subscription)</p>
                             {/* this name for component mean first header charecter */}
-                            <Productfetch pricehandle={pricehandle} from="Domain (Unrestricted Objects) pro" />
+                            <Productfetch itms={(e)=>setprice(e)} pricehandle={pricehandle} from="Domain (Unrestricted Objects) pro" />
                         </div>
                         <div>
                             <p className="p-[3px] my-4 bg-green text-white text-[20px]">ADManager Plus Active Directory Backup and Recovery add-on</p>
-                            <Productfetch pricehandle={pricehandle} from="User Objects pro" />
-
+                            <Productfetch itms={(e)=>setprice(e)} pricehandle={pricehandle} from="User Objects" />
                         </div>
 
                     </div>
