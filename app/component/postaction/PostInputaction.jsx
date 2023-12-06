@@ -34,11 +34,13 @@ export default function PostInputaction({ method }) {
                 return data.json()
             }).then((data) => {                
                 setResult(data)
+                console.log(data);
             })
             if(result){
                 let res = result.topics.find((itm) => {
                     return itm.DISCRIPTION === discription && itm.PRICE===price
                 })
+                console.log(res);
                 fetch(`https://adaudit.ir/api/topics?id=${res._id}`,{
                     method:"DELETE"
                 }).then((e)=>{
