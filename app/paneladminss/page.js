@@ -2,7 +2,7 @@
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 
-export default function page() {
+export default function Page() {
   let [email, setemail] = useState();
   let [password, setpassword] = useState();
   let [error, seterror] = useState();

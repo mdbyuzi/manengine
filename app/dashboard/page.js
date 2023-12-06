@@ -1,7 +1,7 @@
 "use client";
 import { useSession } from "next-auth/react";
 import PostInputAction from "../component/postaction/PostInputaction"
-export default function page() {
+export default function Page() {
   const { data: session, status } = useSession();
   if (status === "locading") {
     return <p>Loading...</p>;
