@@ -21,7 +21,7 @@ export default function PostInputaction({ method }) {
         if (method === "post") {
 
             console.log(JSON.stringify(obj));
-            fetch("http://localhost:3000/api/topics", {
+            fetch("https://adaudit.ir/api/topics", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export default function PostInputaction({ method }) {
                 seterror("خطا")
             })
         } else if (method === "delete") {
-            await fetch("http://localhost:3000/api/topics").then((data) => {
+            await fetch("https://adaudit.ir/api/topics").then((data) => {
                 return data.json()
             }).then((data) => {
                 setResult(data.topics)
@@ -46,7 +46,7 @@ export default function PostInputaction({ method }) {
             })
             console.log(res);
             console.log(discription,price);
-            fetch(`http://localhost:3000/api/topics?id=${res._id}`, {
+            fetch(`https://adaudit.ir/api/topics?id=${res._id}`, {
                 method: "DELETE"
             }).then((e) => {
                 cleaning()
