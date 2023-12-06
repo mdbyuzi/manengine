@@ -4,8 +4,8 @@ export default function PostInputaction({ method }) {
     let [type, settype] = useState();
     let [price, setprice] = useState();
     let [discription, setdiscription] = useState();
-    let [result,setResult]=useState();
-    let [error,seterror]=useState();
+    let [result, setResult] = useState();
+    let [error, seterror] = useState();
     async function submithandler() {
         console.log(type, price, discription);
         let obj = {
@@ -26,34 +26,31 @@ export default function PostInputaction({ method }) {
             }).then((e) => {
                 console.log(type);
                 seterror("محصول اضافه شد")
-            }).catch(()=>{
+            }).catch(() => {
                 seterror("خطا")
             })
         } else if (method === "delete") {
             await fetch("https://adaudit.ir/api/topics").then((data) => {
                 return data.json()
-            }).then((data) => {                
+            }).then((data) => {
                 setResult(data)
                 console.log(data);
             })
             console.log(result);
-            if(result){
-                let res = result.topics.find((itm) => {
-                    return itm.DISCRIPTION === discription && itm.PRICE===price
-                })
-                console.log("res",res);
-                fetch(`https://adaudit.ir/api/topics?id=${res._id}`,{
-                    method:"DELETE"
-                }).then((e)=>{
-                    seterror("موفقیت امیز")
-                    console.log(e);
-                })
-            }else{
-                seterror("دوباره امتحان کنید")
-            }
+            let res = result.topics.find((itm) => {
+                return itm.DISCRIPTION === discription && itm.PRICE === price
+            })
+            console.log(res);
+            fetch(`https://adaudit.ir/api/topics?id=${res._id}`, {
+                method: "DELETE"
+            }).then((e) => {
+                seterror("موفقیت امیز")
+                console.log(e);
+            })
+
             console.log(result);
         }
-        else{
+        else {
             return "null"
         }
     }
@@ -68,13 +65,13 @@ export default function PostInputaction({ method }) {
                 <input value={price} onChange={(e) => {
                     setprice(e.currentTarget.value)
                 }} placeholder="price:" className="broder border-2 p-2 m-2" type=" text " />
-                {method==="post"?<select onChange={(e) => { settype(e.currentTarget.value) }} name="" id="">
+                {method === "post" ? <select onChange={(e) => { settype(e.currentTarget.value) }} name="" id="">
                     <option value="Domain">Domain</option>
                     <option value="User Objects">User Objects</option>
                     <option value="Domain pro">Domain pro</option>
-                </select>:""}
+                </select> : ""}
             </div>
         </div >
-                <p className="text-2xl">{error}</p>
+        <p className="text-2xl">{error}</p>
     </>
 }
