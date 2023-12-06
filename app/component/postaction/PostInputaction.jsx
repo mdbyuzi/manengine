@@ -36,6 +36,7 @@ export default function PostInputaction({ method }) {
                 setResult(data)
                 console.log(data);
             })
+            console.log(result);
             if(result){
                 let res = result.topics.find((itm) => {
                     return itm.DISCRIPTION === discription && itm.PRICE===price
