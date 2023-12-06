@@ -17,9 +17,10 @@ export default function Page() {
       console.log(res);
 
       if (res.status===200) {
-        document.write("موفقیت امیز بود");
+        alert("موفقیت امیز بود")
       }else{
-        document.write("موفقیت امیز نبود");
+        alert("موفقیت امیز نبود")
+
       }
     } catch (error) {
       seterror(error.message);
