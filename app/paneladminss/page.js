@@ -15,9 +15,7 @@ export default function Page() {
         redirect: false,
       });
       console.log(res);
-      if(res=={error: null, status: 200, ok: true, url: 'http://localhost:3000/paneladminss'}){
-        
-      }
+
       if (res.error) {
         console.log("error");
         console.log(res);
@@ -50,6 +48,7 @@ export default function Page() {
           value={password}
         />
         <input onClick={handlesubmit} className="p-4 border" type="submit" />
+        {error}
       </div>
     </>
   );
