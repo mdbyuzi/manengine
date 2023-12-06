@@ -14,7 +14,7 @@ function Navbar({setlang}) {
     let [searchValue, setSearchValue] = useState();
     let [barstoggle, setbartoggle] = useState(false);
     useEffect(()=>{
-        fetch("http://localhost:3000/api/topics").then((data)=>{
+        fetch("http://adaudit.ir/api/topics").then((data)=>{
             return data.json()
         }).then((data)=>{
             console.log(data);
