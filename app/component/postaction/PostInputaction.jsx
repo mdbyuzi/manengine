@@ -41,7 +41,7 @@ export default function PostInputaction({ method }) {
                 let res = result.topics.find((itm) => {
                     return itm.DISCRIPTION === discription && itm.PRICE===price
                 })
-                console.log(res);
+                console.log("res",res);
                 fetch(`https://adaudit.ir/api/topics?id=${res._id}`,{
                     method:"DELETE"
                 }).then((e)=>{
