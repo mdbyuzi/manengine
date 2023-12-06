@@ -6,6 +6,11 @@ export default function PostInputaction({ method }) {
     let [discription, setdiscription] = useState();
     let [result, setResult] = useState();
     let [error, seterror] = useState();
+    function cleaning(){
+        settype()
+        setprice()
+        setdiscription()
+    }
     async function submithandler() {
         console.log(type, price, discription);
         let obj = {
@@ -44,10 +49,10 @@ export default function PostInputaction({ method }) {
             fetch(`https://adaudit.ir/api/topics?id=${res._id}`, {
                 method: "DELETE"
             }).then((e) => {
+                cleaning()
                 seterror("موفقیت امیز")
                 console.log(e);
             })
-
             console.log(result);
         }
         else {
