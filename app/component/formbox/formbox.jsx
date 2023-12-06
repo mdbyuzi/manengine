@@ -15,7 +15,7 @@ const Formbox = ({ price, itmes }) => {
     const [emailverify, setemailverify] = useState();
     const [succses, setsuccses] = useState(false);
     useEffect(() => {
-        axios.get("http://localhost/testbackend/views/getlogininfo").then((res) => {
+        axios.get("http://localhost:3000/testbackend/views/getlogininfo").then((res) => {
             return res.data;
         }).then((data) => {
             if (data) {
@@ -52,7 +52,7 @@ const Formbox = ({ price, itmes }) => {
                     let form = $(e.currentTarget)
                     $.ajax({
                         type: "POST",
-                        url: "http://localhost/testbackend/views/post",
+                        url: "http://localhost:3000/testbackend/views/post",
                         data: form.serialize(),
                         success: function (data) {
                             setResult(data)
@@ -69,7 +69,7 @@ const Formbox = ({ price, itmes }) => {
 
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost/testbackend/views/post",
+                    url: "http://localhost:3000/testbackend/views/post",
                     data: from.serialize(),
                     success: function (data) {
                         setsuccses(true)

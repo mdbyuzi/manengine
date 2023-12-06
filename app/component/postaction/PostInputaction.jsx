@@ -7,21 +7,21 @@ export default function PostInputaction({ method }) {
     let [result, setResult] = useState();
     let [error, seterror] = useState();
     function cleaning(){
-        settype()
-        setprice()
-        setdiscription()
+        settype("")
+        setprice("")
+        setdiscription("")
     }
     async function submithandler() {
         console.log(type, price, discription);
         let obj = {
             type: type,
-            DISCRIPTION: discription,
-            PRICE: price
+            DISCRIPTION: discription.trim(),
+            PRICE: price.trim()
         }
         if (method === "post") {
 
             console.log(JSON.stringify(obj));
-            fetch("https://adaudit.ir/api/topics", {
+            fetch("http://localhost:3000/api/topics", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -35,18 +35,18 @@ export default function PostInputaction({ method }) {
                 seterror("خطا")
             })
         } else if (method === "delete") {
-            await fetch("https://adaudit.ir/api/topics").then((data) => {
+            await fetch("http://localhost:3000/api/topics").then((data) => {
                 return data.json()
             }).then((data) => {
-                setResult(data)
-                console.log(data);
+                setResult(data.topics)
             })
             console.log(result);
-            let res = result.topics.find((itm) => {
-                return itm.DISCRIPTION === discription && itm.PRICE === price
+            let res = result.find((itm) => {
+                return itm.DISCRIPTION === discription && itm.PRICE === price 
             })
             console.log(res);
-            fetch(`https://adaudit.ir/api/topics?id=${res._id}`, {
+            console.log(discription,price);
+            fetch(`http://localhost:3000/api/topics?id=${res._id}`, {
                 method: "DELETE"
             }).then((e) => {
                 cleaning()

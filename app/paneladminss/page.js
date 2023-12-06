@@ -16,12 +16,10 @@ export default function Page() {
       });
       console.log(res);
 
-      if (res.error) {
-        console.log("error");
-        console.log(res);
-        seterror(error.message);
+      if (res.status===200) {
+        document.write("موفقیت امیز بود");
       }else{
-        seterror(false)
+        document.write("موفقیت امیز نبود");
       }
     } catch (error) {
       seterror(error.message);
