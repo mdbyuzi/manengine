@@ -62,6 +62,7 @@ export default function PostInputaction({ method }) {
 
     return <>
         <div className="my-20 text-2xl flex flex-row-reverse justify-end ltr:mr-3 p-4">
+            
             <button onClick={submithandler} className={`mx-4 px-2 ${method === "post" ? "bg-bluewindows" : "bg-red"} rounded`}>{method === "post" ? "اضافه کردن محصول" : "حذف کردن محصول"}</button>
             <div className="flex itmes-center">
                 <input value={discription} onChange={(e) => {
@@ -71,6 +72,7 @@ export default function PostInputaction({ method }) {
                     setprice(e.currentTarget.value)
                 }} placeholder="price:" className="broder border-2 p-2 m-2" type=" text " />
                 {method === "post" ? <select onChange={(e) => { settype(e.currentTarget.value) }} name="" id="">
+                    <option value=""></option>
                     <option value="Domain">Domain</option>
                     <option value="User Objects">User Objects</option>
                     <option value="Domain pro">Domain pro</option>
