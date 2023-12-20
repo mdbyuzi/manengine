@@ -3,9 +3,9 @@ import mongoose, { Schema } from "mongoose";
 const userSchema = new Schema({ type:String,DISCRIPTION: String, PRICE: String  },{
     timestamps: true
 });
-const Topic = mongoose.models.Topic||mongoose.model("Topic", userSchema);
+const Product = mongoose.models.Product||mongoose.model("Product", userSchema);
 
-export default Topic;
+export default Product;
 
 
 

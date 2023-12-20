@@ -11,6 +11,7 @@ export default function Page() {
       })
       .then((data) => {
         setdatas(data.topic);
+        console.log(datas.type);
       });
   }, []);
   const { data: session, status } = useSession();
@@ -24,7 +25,7 @@ export default function Page() {
     <div className=" bg-gradient-to-r from-green to-   bg-gray h-screen flex flex-col text-end justify-end font-vazir w-full ltr:mr-3 p-5 ">
       <h1 className="my-20 text-4xl text-white">سلام به پنل ادمین خوش امدید</h1>
       <ul>
-        {datas.map((items) => {
+        {datas?datas.map((items) => {
           return (
             <>
               <li>
@@ -35,7 +36,7 @@ export default function Page() {
               </li>
             </>
           );
-        })}
+        }):""}
       </ul>
       <PostInputAction method="post" />
       <PostInputAction method="delete" />

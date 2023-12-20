@@ -36,10 +36,6 @@ function Navbar({setlang}) {
     }} className={` z-40 h-[7rem] bg-white flex flex-row-reverse  justify-around items-center border-20 border-solid border-indigo-500 border-lightgray border-y-2 fixed  w-full`}>
         <div className="flex">
             <Image alt="not loading" className="mx-4" src="/assets/logo/manageengine-logo.svg" width={250} height={180}></Image>
-            <select onChange={(e)=>{setlang(e)}} name="" id="">
-                <option value="en">EN</option>
-                <option value="fr">FR</option>
-            </select>
 
         </div>
         <div className="flex flex-row justify-between w-90 m-10 mx-2">

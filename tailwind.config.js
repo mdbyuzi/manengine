@@ -19,14 +19,16 @@ module.exports = {
       "white":"#FFFFFF",
       "gray":"#424F56",
       "orange":"orange",
-      "lightgray":"lightgray",
+      "lightgray":"#AFB7C1",
       "blue":"blue",
       "lightblue":"lightblue",
       "btnblue":"#256AB4",
       "black":"#000000",
       "bluewindows":"#407ee3",
       "lightorange":"	#FFD580",
-      "darkgreen":'#14452f'
+      "darkgreen":'#14452f',
+      "cyberyard":"#76b4c9",
+      "darkred":"#A52A2A"
 
     },
     fontFamily:{
