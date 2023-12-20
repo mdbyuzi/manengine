@@ -1,4 +1,3 @@
-
 import Navbar from "../component/navbar/navbar"
 import Dropdownlist from "../component/dropdownlist/dropdownlist.jsx"
 import "./price.css"

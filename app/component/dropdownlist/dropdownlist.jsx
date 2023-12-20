@@ -15,12 +15,12 @@ function Dropdownlist({ data, open, seteropen, keylid ,pagehand,datamoduls}) {
             }}>{data.DISCRIPTION}</span>
             <ul className={`mx-10 flex flex-col drop-list transition ease-in-out delay-150 duration-300 ${open === keylid ? "h-[100%]" : "hidden"}  `}>
                 {
-                    result.map((itm) => {
+                    result.map((itm,index) => {
                         return <li onClick={(e)=>{
                             console.log("datamoduls name",datamoduls);
                             console.log(itm);
                             setselectcolor(e.currentTarget.value)
-                             pagehand(itm)}} className={`transition ease-in-out delay-150 duration-300 ${itm===datamoduls?"text-green":""}  ${open === keylid ? "h-[100%]" : "w-[0px] h-[0px]"} no-wrap p-4 cursor-pointer`}>{itm}</li>
+                             pagehand(itm)}} className={`transition ease-in-out delay-150 duration-300 ${itm===datamoduls?"text-green":""}  ${open === keylid ? "h-[100%]" : "w-[0px] h-[0px]"} no-wrap p-4 cursor-pointer`} key={index} id={index}>{itm}</li>
                     })
                 }
 
