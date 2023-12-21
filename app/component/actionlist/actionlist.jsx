@@ -34,7 +34,7 @@ export default function ActionList({ data }) {
     return <div className="flex w-full">
         <div className=" p-4 w-[50%] flex flex-col text-[15px] text-lightgray font-bold border-r-[1px] ">
             {data.map((itm,index) => {
-                return <Dropdownlist key={index} datamoduls={datamoduls.name} pagehand={pagechangehandler} keylid={itm.id} open={open} seteropen={(data) => settogglelist(data)} data={itm} />
+                return <Dropdownlist key={index} datamoduls={datamoduls.name} pagehand={pagechangehandler} keylid={itm} open={open} seteropen={(data) => settogglelist(data)} data={itm} />
             })}
         </div>
         <div className="p-4 flex justify-center w-[100%]">
