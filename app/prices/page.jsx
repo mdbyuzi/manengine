@@ -6,7 +6,7 @@ import ActionList from "../component/actionlist/actionlist.jsx"
 import  axios  from "axios"
 async function getData() {
     // Fetch data from external API
-    const res = await fetch(`${process.env.NEXTAUTH_URL}api/products`,{cache:"no-store"})
+    const res = await fetch(`http://localhost:3001/api/products`,{cache:"no-store"})
     const data = await res.json()
     console.log(data.topics);
     return data.topics
