@@ -13,13 +13,7 @@ function Navbar({setlang}) {
     let [toggleSearch, setToggleSearch] = useState(false)
     let [searchValue, setSearchValue] = useState();
     let [barstoggle, setbartoggle] = useState(false);
-    useEffect(()=>{
-        fetch("http://localhost:3000/api/topics").then((data)=>{
-            return data.json()
-        }).then((data)=>{
-            console.log(data);
-        })
-    },[])
+    
     function search_toggle_open() {
         setToggleSearch(true)
     }

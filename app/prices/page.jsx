@@ -1,11 +1,11 @@
-import Navbar from "../component/navbar/navbar"
+import Navbar from "../component/navbar/navbar.jsx"
 import Dropdownlist from "../component/dropdownlist/dropdownlist.jsx"
 import "./price.css"
 import Link from "next/link"
 import ActionList from "../component/actionlist/actionlist.jsx"
 async function getData() {
     // Fetch data from external API
-    const res = await fetch(`https://adaudit.ir/api/products`,{cache:"no-store"})
+    const res = await fetch(`http://localhost:3000/api/products`,{cache:"no-store"})
     const data = await res.json()
     console.log(data.topics);
     return data.topics
