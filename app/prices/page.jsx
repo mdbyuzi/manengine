@@ -3,7 +3,6 @@ import "./price.css"
 import Link from "next/link"
 import ActionList from "../component/actionlist/actionlist.jsx"
 async function getData() {
-    // Fetch data from external API
     const res = await fetch(`https://localhost:3000/api/products`,{cache:"no-store"})
     const data = await res.json()
     console.log(data.topics);
