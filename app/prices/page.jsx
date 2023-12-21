@@ -3,7 +3,6 @@ import Dropdownlist from "../component/dropdownlist/dropdownlist.jsx"
 import "./price.css"
 import Link from "next/link"
 import ActionList from "../component/actionlist/actionlist.jsx"
-import  axios  from "axios"
 async function getData() {
     // Fetch data from external API
     const res = await fetch(`http://localhost:3001/api/products`,{cache:"no-store"})
