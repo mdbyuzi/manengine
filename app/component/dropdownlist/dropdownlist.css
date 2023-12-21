@@ -1,0 +1,14 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+.open{
+    font-size: 15px;
+    height: 100%;
+}
+.close{
+    height: 0px;
+    font-size: 0px;
+
+}
