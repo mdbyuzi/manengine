@@ -1,3 +1,5 @@
 {
-    "editor.inlineSuggest.showToolbar": "onHover"
+    "editor.inlineSuggest.showToolbar": "onHover",
+    "workbench.commandPalette.preserveInput": false,
+    "workbench.tree.enableStickyScroll": true
 }

@@ -192,8 +192,8 @@ export default function ActionList({ data }) {
                                                 </div>
                                             </div>
                                         </> : <li className=" hover:border-x-1 w-[45rem] flex flex-row items-center justify-between p-1">
-                                            <p className="mx-10 text-darkred flex flex-nowrap"><span>دلار</span>{mti.price}</p><div className="flex">
-                                                <p className="self-start mx-2 flex whitespace-nowrap">{mti.title}</p>
+                                            <p className="mx-10 text-darkred flex flex-nowrap"><span>دلار</span>{mti.price?mti.price:""}</p><div className="flex">
+                                                <p className="self-start mx-2 flex whitespace-nowrap">{mti.title?mti.title:""}</p>
                                                 <input type="checkbox" className="m-2 " />
                                             </div>
                                         </li>
