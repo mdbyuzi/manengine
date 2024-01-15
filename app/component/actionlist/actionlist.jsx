@@ -30,6 +30,10 @@ export default function ActionList({ data }) {
         setdatamoduls(res);
         console.log(res);
     }
+    function makepricetotoman(price){
+        let newprice =price.toString()
+        return newprice.match(/\d/g).join("")*30
+    }
 
     return <div className="flex w-full">
         <div className=" p-4 w-[50%] flex flex-col text-[15px] text-lightgray font-bold border-r-[1px] ">
@@ -191,8 +195,8 @@ export default function ActionList({ data }) {
                                                     
                                                 </div>
                                             </div>
-                                        </> : <li className=" hover:border-x-1 w-[45rem] flex flex-row items-center justify-between p-1">
-                                            <p className="mx-10 text-darkred flex flex-nowrap"><span>دلار</span>{mti.price?mti.price:""}</p><div className="flex">
+                                        </> : <li className=" color-bluecyber font-vazir hover:border-x-1 w-[45rem] flex flex-row items-center justify-between p-1">
+                                            <p className="mx-10 text-darkred flex flex-nowrap">{makepricetotoman(mti.price)}<span className="mx-2">تومان</span></p><div className="flex">
                                                 <p className="self-start mx-2 flex whitespace-nowrap">{mti.title?mti.title:""}</p>
                                                 <input type="checkbox" className="m-2 " />
                                             </div>

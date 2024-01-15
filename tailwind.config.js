@@ -27,7 +27,7 @@ module.exports = {
       "bluewindows":"#407ee3",
       "lightorange":"	#FFD580",
       "darkgreen":'#14452f',
-      "cyberyard":"#76b4c9",
+      "cyberyard":"#76B4C9",
       "darkred":"#A52A2A"
 
     },

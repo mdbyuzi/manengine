@@ -4,7 +4,7 @@ import Link from "next/link"
 import "./dropdownlist.css"
 function Dropdownlist({ data, open, seteropen, keylid ,pagehand,datamoduls}) {
     let [dataself, setdataself] = useState(false)
-    
+    let result = data.items
     let [selectcolor,setselectcolor]=useState(false)
     console.log(result);
     return <>
@@ -15,7 +15,7 @@ function Dropdownlist({ data, open, seteropen, keylid ,pagehand,datamoduls}) {
             }}>{data.DISCRIPTION}</span>
             <ul className={`mx-10 flex flex-col drop-list transition ease-in-out delay-150 duration-300 ${open === keylid ? "h-[100%]" : "hidden"}  `}>
                 {
-                    data.map((itm,index) => {
+                    result.map((itm,index) => {
                         return <li onClick={(e)=>{
                             console.log("datamoduls name",datamoduls);
                             console.log(itm);
